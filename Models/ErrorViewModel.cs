@@ -1,6 +1,6 @@
-namespace CLDV_ASSIGNMENT.Models
+namespace KhumaloCraftEmporium.Models
 {
-	public class ErrorViewModel
+    public class ErrorViewModel
 	{
 		public string? RequestId { get; set; }
 

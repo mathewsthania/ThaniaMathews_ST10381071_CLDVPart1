@@ -1,7 +1,7 @@
-﻿using CLDV_ASSIGNMENT.Models;
+﻿using KhumaloCraftEmporium.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CLDV_ASSIGNMENT.Controllers
+namespace KhumaloCraftEmporium.Controllers
 {
 	public class UserController1 : Controller
 	{

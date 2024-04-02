@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 
-namespace CLDV_ASSIGNMENT.Models
+namespace KhumaloCraftEmporium.Models
 {
 	public class CloudTable1 : Controller
 	{
@@ -19,14 +19,14 @@ namespace CLDV_ASSIGNMENT.Models
 		
 		public string Email { get; set; }
 
-		public int insert_User(CloudTable1 m)
+		public int insert_User(CloudTable1 model)
 		{
-			string sql = "INSERT INTO CloudTable1 (userName, userSurname, userEmail) VALUES (@Name, @Surname, @Email)";
-			SqlCommand cmd = new SqlCommand(sql, con);
+			string sql = "INSERT INTO CloudTable1 (UserName, UserSurname, UserEmail) VALUES (@Name, @Surname, @Email)";
+			using SqlCommand cmd = new SqlCommand(sql, con);
 
-			cmd.Parameters.AddWithValue("@Name", m.Name);
-			cmd.Parameters.AddWithValue("@Surname", m.Surname);
-			cmd.Parameters.AddWithValue("@Email", m.Email);
+			cmd.Parameters.AddWithValue("@Name", model.Name);
+			cmd.Parameters.AddWithValue("@Surname", model.Surname);
+			cmd.Parameters.AddWithValue("@Email", model.Email);
 			
 			con.Open();
 			int rowsAffected = cmd.ExecuteNonQuery();

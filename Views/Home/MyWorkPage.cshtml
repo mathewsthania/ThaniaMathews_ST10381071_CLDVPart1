@@ -1,0 +1,123 @@
+﻿@{
+    ViewData["Title"] = "My Work Page";
+}
+
+<div style="background-color: orange; color:white; padding: 40px; text-align: center; font-size: 25px">
+    <h2>Khumalo Craft Work</h2>
+    <p>
+        Explore and look at some of our exquisite craftsmanship. Our crafted pieces embody the essence of Khumalo
+        Craft Emporium. From hand-carved wooden sculptures to intricately woven textiles, each piece is unique and
+        has a special background story.
+    </p>
+</div>
+
+<style> 
+    .product-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space space-between;
+    }
+
+    .product {
+        width: calc(25% - 10px);
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .product img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .price{
+        font-weight: bold;
+    }
+
+    .description {
+        font-style: italic;
+    }
+
+    .product-container: after{
+        content: "";
+        flex: auto;
+    }
+
+</style>
+
+<div class="product-container">
+
+    <!-- product 1-->
+    <div class="product">
+        <img src="~/Products/product 1.jpg" width="270" height="300" />
+        <h3>Binga African Basket</h3>
+        <p class="price"> <strong> R999 </strong></p>
+        <p class="description"> Binga Traditional African Baskets, <br />
+            popular for decorating, or used as <br />
+            ornamental accents throughout <br />
+            the home.
+        </p>
+    </div>
+
+    <!-- product 2-->
+    <div class="product">
+        <img src="~/Products/product 2.png" width="270" height="300" />
+        <h3>Garlic Gourd Basket</h3>
+        <p class="price"< <strong> R899 </strong> </p>
+        <p class="description">Black and White intricately woven baskets, made for storage or to be used as decor</p>
+    </div>
+
+    <!-- product 3-->
+    <div class="product">
+        <img src="~/Products/product 3.jpg" width="270" height="300" />
+        <h3>The Wooden Lion</h3>
+        <p class="price"< <strong> R1795 </strong> </p>
+        <p class="description">This lion is a intricately carved wooden piece, that is great for decor in any area. </p>
+    </div>
+
+    <!-- product 4-->
+    <div class="product">
+        <img src="~/Products/product 4.png" width="270" height="300" />
+        <h3> Modern African Facial Structure</h3>
+        <p class="price"< <strong> R5999 </strong> </p>
+        <p class="description">Crafted to enhance natural beauty, it celebrates the rich diversity and unique features of African heritage.</p>
+    </div>
+
+    <!-- product 5-->
+    <div class="product">
+        <img src="~/Products/product 5.jpg" width="270" height="300" />
+        <h3> Minimalist Vase </h3>
+        <p class="price"< <strong> R799 </strong> </p>
+        <p class="description">Each vase is uniquely hand-shaped and crafted, made with cermaic material.</p>
+    </div>
+
+    <!-- product 6-->
+    <div class="product">
+        <img src="~/Products/product 6.png" width="270" height="300" />
+        <h3>The Woman in the Hat</h3>
+        <p class="price"< <strong> R1999 </strong> </p>
+        <p class="description">"The Woman in the Hat", showcases the side profile of a woman wearing her cultural head piece.This painting is sold with the frame and will be a stylish addition to any home or area.</p>
+    </div>
+
+    <!-- product 7-->
+    <div class="product">
+        <img src="~/Products/product 7.png" width="270" height="300" />
+        <h3>Hand-Crafted Makenge Plates</h3>
+        <p class="price"< <strong> R899 </strong> </p>
+        <p class="description">These plates are a blend of traditonal African artistry and contemporary elegance.Each plate tells a story of cultral heritage, making it a stunning addition to any modern home.</p>
+    </div>
+
+    <!-- product 8-->
+    <div class="product">
+        <img src="~/Products/product 8.png" width="270" height="300" />
+        <h3>Full Tikar African Bangle</h3>
+        <p class="price"< <strong> R2599 </strong> </p>
+        <p class="description">These Tikar African bangles are hand-crafted, by the Tikar Tribe. They come in all different sizes, shapes, colours, and design.</p>
+    </div>
+</div>
+
+
+
+
+

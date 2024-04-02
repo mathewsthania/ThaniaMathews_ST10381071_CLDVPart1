@@ -1,4 +1,4 @@
-namespace CLDV_ASSIGNMENT
+namespace CLDV6211_ASSIGNMENT
 {
 	public class Program
 	{

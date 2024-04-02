@@ -1,8 +1,8 @@
 using System.Diagnostics;
-using CLDV_ASSIGNMENT.Models;
+using KhumaloCraftEmporium.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CLDV_ASSIGNMENT.Controllers
+namespace KhumaloCraftEmporium.Controllers
 {
 	public class HomeController : Controller
 	{
@@ -18,12 +18,23 @@ namespace CLDV_ASSIGNMENT.Controllers
 			return View();
 		}
 
-		public IActionResult Privacy()
+		public IActionResult ContactUs()
 		{
 			return View();
 		}
 
-		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+		public IActionResult About_Us()
+		{
+			return View();
+		}
+
+        public IActionResult MyWorkPage()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+
 		public IActionResult Error()
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
