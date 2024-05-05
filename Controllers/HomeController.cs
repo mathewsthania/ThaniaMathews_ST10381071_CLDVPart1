@@ -23,12 +23,22 @@ namespace KhumaloCraftEmporium.Controllers
 			return View();
 		}
 
-		public IActionResult About_Us()
+		public IActionResult AboutUs()
 		{
 			return View();
 		}
 
         public IActionResult MyWorkPage()
+        {
+            return View();
+        }
+
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+
+        public IActionResult Login()
         {
             return View();
         }
