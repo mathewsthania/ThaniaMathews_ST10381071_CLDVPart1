@@ -5,10 +5,10 @@ namespace KhumaloCraft.Controllers
 {
 	public class ProductController : Controller
 	{
-		public ProductTable prodtbl = new ProductTable();
+		public ProductTable1 prodtbl = new ProductTable1();
 
 		[HttpPost]
-		public ActionResult MyWorkPage(ProductTable products)
+		public ActionResult MyWorkPage(ProductTable1 products)
 		{
 			var result2 = prodtbl.insert_product(products);
 			return RedirectToAction("Index", "Home");

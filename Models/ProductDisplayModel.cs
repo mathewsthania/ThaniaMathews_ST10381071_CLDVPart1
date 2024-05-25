@@ -12,7 +12,8 @@ namespace KhumaloCraft.Models
 		public decimal ProductPrice { get; set; }
 		public string ProductCategory { get; set; }
 		public bool ProductAvailability { get; set; }
-
+		public string ProductImagePath { get; set; } // adding ProductImagePath to store image paths for each product
+		public string ProductDescription { get; set; } // adding ProductDescription to store descriptions for each product 
 		public ProductDisplayModel() { }
 
 		public ProductDisplayModel(int id, string name, decimal price, string category, bool availability)
@@ -31,7 +32,7 @@ namespace KhumaloCraft.Models
 			string con_string = "Server=tcp:sql-databaset-utorial.database.windows.net,1433;Initial Catalog=SQLDatabase;Persist Security Info=False;User ID=thaniamathews;Password=SummerMe26;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
 			using (SqlConnection con = new SqlConnection(con_string))
 			{
-				string sql = "SELECT ProductID, ProductName,ProductPrice, ProductCategory, ProductAvailability FROM ProductTable3";
+				string sql = "SELECT ProductID, ProductName, ProductPrice, ProductCategory, ProductAvailability FROM ProductTable";
 				SqlCommand cmd = new SqlCommand(sql, con);
 
 				con.Open();

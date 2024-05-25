@@ -43,6 +43,16 @@ namespace KhumaloCraftEmporium.Controllers
             return View();
         }
 
+        public IActionResult Account()
+        {
+            return View();
+        }
+
+        public IActionResult Logout()
+        {
+			return View("Index");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 
 		public IActionResult Error()

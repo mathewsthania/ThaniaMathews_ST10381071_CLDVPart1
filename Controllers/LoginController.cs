@@ -31,14 +31,19 @@ namespace KhumaloCraftEmporium.Controllers
 
         // Action method for handling POST requests for user privacy
         [HttpPost]
-        public ActionResult UserLogin(string Name, string Email, string Password)
+        public async Task<IActionResult> UserLogin(UserTable model)
         {
+
+            if (ModelState.IsValid)
+            {
+                return View("Login", model); ;
+            }
 
             // creating a new instance of the LoginModel
             var loginModel = new LoginModel();
 
             // using the object created(loginModel) to call the SelectUser method to find the user by Name,Email & Password
-            int UserID = loginModel.SelectUser(Name, Email, Password);
+            int UserID = login.SelectUser(model.Name, model.Email, model.Password);
             
             // checking if the UserID is valid (if its not equal to -1)
             if (UserID != -1)
@@ -49,8 +54,8 @@ namespace KhumaloCraftEmporium.Controllers
 
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, Name),
-                    new Claim(ClaimTypes.Email, Email),
+                    new Claim(ClaimTypes.Name, model.Name),
+                    new Claim(ClaimTypes.Email, model.Email),
                     new Claim(ClaimTypes.NameIdentifier, UserID.ToString())
                 };
 
@@ -58,8 +63,10 @@ namespace KhumaloCraftEmporium.Controllers
 
                 var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
-                HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal).Wait();
-                
+				await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
+
+                HttpContext.Session.SetString("UserName", model.Name);
+
                 return RedirectToAction("MyWorkPage", "Home", new { UserID = UserID });
             }
 
@@ -68,7 +75,7 @@ namespace KhumaloCraftEmporium.Controllers
                 ViewBag.ErrorMessage = "Email or Password entered is incorrect, Please try again!";
                 // User not found, handle accordingly (e.g., show error message)
                
-                return View("Login");
+                return View("Login", model);
             }
         }
 

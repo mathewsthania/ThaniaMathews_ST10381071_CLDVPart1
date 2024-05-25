@@ -25,15 +25,23 @@ namespace KhumaloCraft.Models
                 cmd.Parameters.AddWithValue("@Password", Password);
 
 
-                con.Open(); // opening the connection for the database
-
-                object result = cmd.ExecuteScalar(); // execuing the SQL query and get the returning result
-
-                // if statmenet - to check if the result is not null and not DBnull
-                if (result != null && result != DBNull.Value)
+                try
                 {
-                    // converting the result to an integer and setting it as the UserID
-                    UserID = Convert.ToInt32(result);
+					con.Open(); // opening the connection for the database
+
+					object result = cmd.ExecuteScalar(); // execuing the SQL query and get the returning result
+
+					// if statmenet - to check if the result is not null and not DBnull
+					if (result != null && result != DBNull.Value)
+					{
+						// converting the result to an integer and setting it as the UserID
+						UserID = Convert.ToInt32(result);
+					}
+				}
+
+                catch (Exception ex)
+                {
+                    throw ex;
                 }
 
             }
