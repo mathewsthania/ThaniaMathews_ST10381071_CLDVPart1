@@ -3,21 +3,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KhumaloCraft.Controllers
 {
-	public class ProductController : Controller
-	{
-		public ProductTable1 prodtbl = new ProductTable1();
+    public class ProductController : Controller
+    {
+        [HttpGet]
+        public IActionResult MyWorkPageShopping()
+        {
+            var products = ProductTable1.GetAllProducts();
 
-		[HttpPost]
-		public ActionResult MyWorkPage(ProductTable1 products)
-		{
-			var result2 = prodtbl.insert_product(products);
-			return RedirectToAction("Index", "Home");
-		}
+            Console.WriteLine("Products in MyWorkPageShopping: " + products.Count);
 
-		[HttpGet]
-		public IActionResult MyWorkPage()
-		{
-			return View(prodtbl);
-		}
-	}
+            return View(products);
+        }
+    }
 }

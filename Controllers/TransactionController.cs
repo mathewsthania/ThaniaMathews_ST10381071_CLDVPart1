@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KhumaloCraft.Controllers
 {
-	public class TransactionTable2Controller : Controller
+	public class TransactionController : Controller
 	{
 		[HttpPost]
 		public ActionResult PlaceOrder(int UserID, int ProductID)

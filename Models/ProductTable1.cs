@@ -1,5 +1,6 @@
 ﻿using System.Data.SqlClient;
 using System.Reflection.Metadata.Ecma335;
+using KhumaloCraft.Models;
 using KhumaloCraftEmporium.Models;
 
 namespace KhumaloCraft.Models
@@ -9,24 +10,23 @@ namespace KhumaloCraft.Models
 		// Connection string for connecting to the SQL database
 		public static string con_string = "Server=tcp:sql-databaset-utorial.database.windows.net,1433;Initial Catalog=SQLDatabase;Persist Security Info=False;User ID=thaniamathews;Password=SummerMe26;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
 
-		// SQLConnection objct. for managing the database connection
-		public static SqlConnection con = new SqlConnection(con_string);
-
 
 		// properties for storing the product information
 		public int ProductID { get; set; }
+
 		public string Name { get; set; }
 
-		public string Price { get; set; }
+		public decimal Price { get; set; }
 
 		public string Category { get; set; }
 
-		public string Availability { get; set; }
+		public bool Availability { get; set; }
 
-		
+        // SQLConnection objct. for managing the database connection
+        public static SqlConnection con = new SqlConnection(con_string);
 
-		// Method for inserting product data into the database
-		public int insert_product(ProductTable1 model)
+        // Method for inserting product data into the database
+        public int insert_product(ProductTable1 model)
 		{
 			string sql = "INSERT INTO ProductTable1 (ProductName, ProductPrice, ProductCategory, ProductAvailability) VALUES (@Name, @Price, @Category, @Availability)";
 
@@ -68,11 +68,11 @@ namespace KhumaloCraft.Models
 					ProductTable1 product = new ProductTable1();
 					product.ProductID = Convert.ToInt32(rdr["ProductID"]);
 					product.Name = rdr["ProductName"].ToString();
-					product.Price = rdr["ProductPrice"].ToString();
-					product.Category = rdr["ProductCategory"].ToString();
-					product.Availability = rdr["ProductAvailability"].ToString();
+					product.Price = rdr["ProductPrice"] != DBNull.Value ? Convert.ToDecimal(rdr["ProductPrice"]) : 0;
+                    product.Category = rdr["ProductCategory"].ToString();
+					product.Availability = rdr["ProductAvailability"] != DBNull.Value ? Convert.ToBoolean(rdr["ProductAvailability"]) : false;
 
-					products.Add(product);
+                    products.Add(product);
 				}
 			}
 

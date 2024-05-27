@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using KhumaloCraft.Models;
 using KhumaloCraftEmporium.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -52,6 +53,18 @@ namespace KhumaloCraftEmporium.Controllers
         {
 			return View("Index");
         }
+
+        public IActionResult MyWorkPageShopping()
+        {
+            var products = ProductTable1.GetAllProducts();
+            return View(products);
+        }
+
+        public IActionResult Cart()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 

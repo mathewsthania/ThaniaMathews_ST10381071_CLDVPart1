@@ -67,7 +67,7 @@ namespace KhumaloCraftEmporium.Controllers
 
                 HttpContext.Session.SetString("UserName", model.Name);
 
-                return RedirectToAction("MyWorkPage", "Home", new { UserID = UserID });
+                return RedirectToAction("MyWorkPageShopping", "Home", new { UserID = UserID });
             }
 
             else

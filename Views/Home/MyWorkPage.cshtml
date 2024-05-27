@@ -9,39 +9,56 @@
         Craft Emporium. From hand-carved wooden sculptures to intricately woven textiles, each piece is unique and
         has a special background story.
     </p>
+    <p> 
+        <strong>
+           If you would like to purchase any of our products below, please log in or sign up.
+        </strong>
+    </p>
 </div>
 
 <style> 
-    .product-container {
+    .product-container 
+    {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space space-between;
+        justify-content: space-between;
     }
 
-    .product {
+    .product 
+    {
         width: calc(25% - 10px);
         margin-bottom: 20px;
         border: 1px solid #ddd;
         padding: 20px;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between
     }
 
-    .product img {
+    .product img 
+    {
         max-width: 100%;
         height: auto;
     }
 
-    .price{
+    .price
+    {
         font-weight: bold;
     }
 
-    .description {
+    .description 
+    {
         font-style: italic;
     }
 
-    .product-container: after{
+    .product-container: after
+    {
         content: "";
         flex: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 
 </style>
@@ -56,7 +73,8 @@
         <p class="description"> Binga Traditional African Baskets, <br />
             popular for decorating, or used as <br />
             ornamental accents throughout <br />
-            the home. </p>
+            the home. 
+        </p>
     </div>
 
     <!-- product 2-->
